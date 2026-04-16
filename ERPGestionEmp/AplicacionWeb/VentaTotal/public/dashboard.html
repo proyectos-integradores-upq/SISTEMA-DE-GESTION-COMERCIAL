@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - VentaTotal</title>
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<div class="logo">
+<div class="logo-icon">
+<i class="fa-solid fa-table-cells-large"></i>
+</div>
+<div>
+<h3>Sistema ERP</h3>
+<p>Versión 1.0</p>
+</div>
+</div>
+
+<nav>
+
+<a class="menu active">
+<i class="fa-solid fa-table-cells-large"></i>
+<span>Dashboard</span>
+</a>
+
+<a class="menu" href="productos.html">
+<i class="fa-solid fa-box"></i>
+<span>Productos</span>
+</a>
+
+<a class="menu" href="entradas.html">
+<i class="fa-solid fa-arrow-down"></i>
+<span>Entradas</span>
+</a>
+
+<a class="menu" href="ventas.html">
+<i class="fa-solid fa-cart-shopping"></i>
+<span>Ventas</span>
+</a>
+
+<a class="menu" href="reportes.html">
+<i class="fa-solid fa-chart-column"></i>
+<span>Reportes</span>
+</a>
+
+<a class="menu" href="usuarios.html">
+<i class="fa-solid fa-users"></i>
+<span>Usuarios</span>
+</a>
+
+</nav>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+
+<h1>VentaTotal</h1>
+
+
+
+<div class="top-right">
+
+<a class="profile" href="usuarios.html">
+<div class="avatar">
+<i class="fa-regular fa-user"></i>
+</div>
+<div>
+<h4 id="topbarUsuarioNombre">Usuario</h4>
+<p id="topbarUsuarioRol">Administrador</p>
+</div>
+</a>
+
+</div>
+
+</header>
+
+
+<section class="cards">
+
+<div class="card card-shortcut" id="cardShortcutProductos">
+<div>
+<p>Total Productos</p>
+<h2 id="kpiTotalProductos">0</h2>
+<span class="up">Inventario activo</span>
+</div>
+<div class="icon blue">
+<i class="fa-solid fa-box"></i>
+</div>
+</div>
+
+
+<div class="card card-shortcut" id="cardShortcutStock">
+<div>
+<p>Stock Bajo</p>
+<h2 id="kpiStockBajo">0</h2>
+<span class="down">Productos con menos de 5 unidades</span>
+</div>
+<div class="icon red">
+<i class="fa-solid fa-arrow-trend-down"></i>
+</div>
+</div>
+
+
+<div class="card card-shortcut" id="cardShortcutVentas">
+<div>
+<p>Ventas Hoy</p>
+<h2 id="kpiVentasHoy">0</h2>
+<span class="up">Ventas registradas hoy</span>
+</div>
+<div class="icon green">
+<i class="fa-solid fa-cart-shopping"></i>
+</div>
+</div>
+
+
+<div class="card card-shortcut" id="cardShortcutIngresos">
+<div>
+<p>Ingresos del Día</p>
+<h2 id="kpiIngresosHoy">$0.00</h2>
+<span class="up">Total facturado hoy</span>
+</div>
+<div class="icon purple">
+<i class="fa-solid fa-dollar-sign"></i>
+</div>
+</div>
+
+</section>
+
+<section class="productos">
+<div class="productos-card">
+
+<div class="productos-header">
+
+<h2>Productos</h2>
+
+
+</div>
+
+
+<div class="filtros">
+
+<input id="buscarDashboardProducto" type="text" placeholder="Buscar por nombre o código...">
+
+<select id="filtroDashboardCategoria">
+<option value="">Todas las Categorías</option>
+</select>
+
+</div>
+
+
+<table class="tabla-productos">
+
+<thead>
+<tr>
+<th>CÓDIGO</th>
+<th>NOMBRE</th>
+<th>CATEGORÍA</th>
+<th>PRECIO</th>
+<th>STOCK</th>
+<th>ACCIONES</th>
+</tr>
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+<p id="estadoDashboardTabla" class="estado-dashboard">Cargando productos...</p>
+
+</div>
+</section>
+
+<section class="graficas">
+
+<div class="grafica-card">
+
+<h3>Productos Más Vendidos</h3>
+
+<div id="ventasChart" class="chart-host"></div>
+
+</div>
+
+
+<div class="grafica-card">
+
+<h3>Inventario por Categoría</h3>
+
+<div id="inventarioChart" class="chart-host"></div>
+
+</div>
+
+</section>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="js/dashboard.js"></script>
+
+</main>
+
+</div>
+
+</body>
+</html>

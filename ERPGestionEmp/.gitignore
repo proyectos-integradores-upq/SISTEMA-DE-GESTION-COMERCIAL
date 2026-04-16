@@ -1,0 +1,37 @@
+# Node modules
+AplicacionMovil/VentaTotal/node_modules/
+
+# Composer dependencies
+AplicacionWeb/VentaTotal/vendor/
+
+# Environment files
+AplicacionWeb/VentaTotal/.env
+AplicacionWeb/VentaTotal/.env.local
+AplicacionWeb/VentaTotal/.env.example
+
+# Build outputs
+AplicacionWeb/VentaTotal/bootstrap/cache/
+AplicacionWeb/VentaTotal/storage/logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+hola.txt
+
+# Laravel specific
+AplicacionWeb/VentaTotal/storage/app/*
+!AplicacionWeb/VentaTotal/storage/app/.gitkeep
+AplicacionWeb/VentaTotal/storage/framework/*
+!AplicacionWeb/VentaTotal/storage/framework/.gitkeep
+
+# npm
+AplicacionMovil/VentaTotal/npm-debug.log
+AplicacionMovil/VentaTotal/yarn-error.log

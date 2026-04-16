@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Punto de Venta</title>
+
+<link rel="stylesheet" href="css/ventas.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+<div class="logo">
+<div class="logo-icon">
+<i class="fa-solid fa-table-cells-large"></i>
+</div>
+
+<div>
+<h3>Sistema ERP</h3>
+<p>Versión 1.0</p>
+</div>
+</div>
+
+<nav>
+
+<a class="menu" href="dashboard.html">
+<i class="fa-solid fa-table-cells-large"></i>
+<span>Dashboard</span>
+</a>
+
+<a class="menu" href="productos.html">
+<i class="fa-solid fa-box"></i>
+<span>Productos</span>
+</a>
+
+<a class="menu" href="entradas.html">
+<i class="fa-solid fa-arrow-down"></i>
+<span>Entradas</span>
+</a>
+
+<a class="menu active" href="ventas.html">
+<i class="fa-solid fa-cart-shopping"></i>
+<span>Ventas</span>
+</a>
+
+<a class="menu" href="reportes.html">
+<i class="fa-solid fa-chart-column"></i>
+<span>Reportes</span>
+</a>
+
+<a class="menu" href="usuarios.html">
+<i class="fa-solid fa-users"></i>
+<span>Usuarios</span>
+</a>
+
+</nav>
+
+</aside>
+
+
+<!-- MAIN -->
+<main class="main">
+
+<header class="topbar">
+
+<h1>VentaTotal</h1>
+
+
+
+<a class="profile" href="usuarios.html">
+
+<div class="avatar">
+<i class="fa-regular fa-user"></i>
+</div>
+
+<div>
+<h4 id="topbarUsuarioNombre">Admin</h4>
+<p id="topbarUsuarioRol">Administrador</p>
+</div>
+
+</a>
+
+</header>
+
+
+<div class="content">
+
+<div class="page-header">
+<h2>Punto de Venta</h2>
+<p>Registra tus ventas de forma rápida y eficiente</p>
+</div>
+
+
+<div class="ventas-layout">
+
+<!-- PRODUCTOS -->
+<div class="productos">
+
+<div class="filtros">
+
+<div class="buscar">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input id="buscarProductoVenta" type="text" placeholder="Buscar producto por nombre o código...">
+</div>
+
+<select id="filtroCategoriaVenta">
+<option value="">Todas las Categorías</option>
+</select>
+
+</div>
+
+
+<div class="productos-grid" id="productosGridVenta">
+
+<p id="estadoProductosVenta">Cargando inventario...</p>
+
+</div>
+
+</div>
+
+
+<!-- CARRITO -->
+<div class="carrito">
+
+<div class="carrito-header">
+<h3><i class="fa-solid fa-cart-shopping"></i> Carrito de Compra</h3>
+<span class="badge" id="badgeCarrito">0</span>
+</div>
+
+<div class="carrito-vacio" id="carritoVacio">
+
+<i class="fa-solid fa-cart-shopping"></i>
+<p>El carrito está vacío</p>
+
+</div>
+
+<div id="carritoItems"></div>
+
+
+<div class="totales">
+
+<div>
+<span>Subtotal:</span>
+<span id="subtotalVenta">$0.00</span>
+</div>
+
+<div>
+<span>IVA (16%):</span>
+<span id="ivaVenta">$0.00</span>
+</div>
+
+<hr>
+
+<div class="total">
+<span>Total:</span>
+<span id="totalVenta">$0.00</span>
+</div>
+
+</div>
+
+<div class="pago">
+
+<label>Método de Pago</label>
+
+<select class="metodo" id="metodoPagoVenta">
+<option value="Efectivo">💵 Efectivo</option>
+<option value="Tarjeta">💳 Tarjeta</option>
+<option value="Transferencia">🏦 Transferencia</option>
+</select>
+
+<button class="btn-confirmar" id="btnConfirmarVenta">
+<i class="fa-solid fa-dollar-sign"></i>
+Confirmar Venta
+</button>
+
+<button class="btn-cancelar" id="btnCancelarVenta">
+Cancelar
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+<section class="detalle-ventas">
+<div class="detalle-header">
+<h3><i class="fa-solid fa-receipt"></i> Detalle de ventas</h3>
+<button type="button" id="btnRecargarDetalleVentas" class="btn-recargar-detalle">Recargar</button>
+</div>
+
+<div id="estadoDetalleVentas" class="estado-detalle-ventas">Cargando detalle de ventas...</div>
+
+<div class="detalle-tabla-wrap">
+<table class="detalle-tabla" id="tablaDetalleVentas">
+<thead>
+<tr>
+<th>Venta</th>
+<th>Fecha</th>
+<th>Cliente</th>
+<th>Articulos</th>
+<th>Total</th>
+<th>Método</th>
+<th>Detalle</th>
+<th>Factura</th>
+</tr>
+</thead>
+<tbody id="detalleVentasBody"></tbody>
+</table>
+</div>
+</section>
+
+<div class="modal-detalle-venta" id="modalDetalleVenta">
+<div class="modal-detalle-venta-card">
+<div class="modal-detalle-header">
+<h3 id="detalleVentaTitulo"><i class="fa-solid fa-receipt"></i> Detalle de venta</h3>
+<button type="button" class="btn-cerrar-modal" id="btnCerrarModalDetalleVenta">&times;</button>
+</div>
+
+<p id="detalleVentaMeta" class="detalle-venta-meta"></p>
+
+<div class="detalle-venta-tabla-wrap">
+<table class="detalle-venta-tabla">
+<thead>
+<tr>
+<th>Producto</th>
+<th>Cantidad</th>
+<th>P. Unitario</th>
+<th>Subtotal</th>
+</tr>
+</thead>
+<tbody id="detalleVentaBody"></tbody>
+</table>
+</div>
+
+<div class="detalle-venta-total" id="detalleVentaTotal"></div>
+</div>
+</div>
+
+<div class="modal-facturacion" id="modalFacturacion">
+<div class="modal-facturacion-card">
+<div class="modal-facturacion-header">
+<h3 id="modalFacturacionTitulo"><i class="fa-solid fa-file-invoice"></i> Generar Facturación</h3>
+<button type="button" class="btn-cerrar-modal" id="btnCerrarModalFacturacion">&times;</button>
+</div>
+
+<p id="modalFacturacionSubtitulo" class="modal-facturacion-subtitulo">Completa los datos para generar la factura.</p>
+
+<form id="formFacturacion" class="form-facturacion">
+<div class="form-grid">
+<label>
+<span>ID Venta</span>
+<input type="number" id="factIdVenta" min="1" required readonly>
+</label>
+
+<label>
+<span>Nombre Cliente</span>
+<input type="text" id="factNombreCliente" maxlength="150" required>
+</label>
+
+<label>
+<span>Correo</span>
+<input type="email" id="factCorreo" maxlength="100" placeholder="opcional">
+</label>
+
+<label>
+<span>Teléfono</span>
+<input type="text" id="factTelefono" maxlength="20" placeholder="opcional">
+</label>
+
+<label>
+<span>RFC</span>
+<input type="text" id="factRfc" maxlength="20" required>
+</label>
+
+<label>
+<span>Razón Social</span>
+<input type="text" id="factRazonSocial" maxlength="150" required>
+</label>
+</div>
+
+<p id="mensajeFacturacion" class="mensaje-facturacion"></p>
+
+<div class="modal-facturacion-actions">
+<button type="button" id="btnCancelarModalFacturacion" class="btn-cancelar">Cancelar</button>
+<button type="submit" id="btnGuardarFacturacion" class="btn-facturar">
+<i class="fa-solid fa-file-invoice"></i>
+Guardar y Generar
+</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/ventas.js"></script>
+
+</body>
+</html>

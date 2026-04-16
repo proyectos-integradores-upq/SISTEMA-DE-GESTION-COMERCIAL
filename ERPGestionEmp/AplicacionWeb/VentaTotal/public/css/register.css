@@ -1,0 +1,337 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🔥 Evitar scroll lateral */
+html, body {
+    overflow-x: hidden;
+}
+
+/* 🔥 Ocultar scroll pero permitir desplazamiento */
+body {
+    scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Edge, Safari */
+}
+
+/* Body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Elementos decorativos animados */
+.bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.2;
+    animation: blob 7s infinite;
+    pointer-events: none; /* 🔥 evita bugs */
+}
+
+.blob-1 {
+    width: 320px;
+    height: 320px;
+    background: #3b82f6;
+    top: -160px;
+    right: -160px;
+}
+
+.blob-2 {
+    width: 320px;
+    height: 320px;
+    background: #8b5cf6;
+    bottom: -160px;
+    left: -160px;
+    animation-delay: 2s;
+}
+
+.blob-3 {
+    width: 320px;
+    height: 320px;
+    background: #6366f1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 4s;
+}
+
+@keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* Container */
+.register-container {
+    width: 100%;
+    max-width: 520px;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card */
+.register-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+}
+
+/* Header */
+.register-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-container {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.logo-container i {
+    font-size: 32px;
+    color: white;
+}
+
+.register-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 16px;
+}
+
+/* Mensajes */
+.error-message {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.error-message p {
+    color: #dc2626;
+    font-size: 14px;
+    text-align: center;
+}
+
+.success-message {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.success-message p {
+    color: #16a34a;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Form */
+.register-form {
+    margin-bottom: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+/* Inputs */
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 48px 12px 48px; /* 🔥 espacio para iconos */
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-group input.error {
+    border-color: #dc2626;
+}
+
+/* Mostrar contraseña */
+.toggle-password {
+    position: absolute;
+    right: 50px; /* Ajustado más a la izquierda */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 18px;
+}
+
+.toggle-password:hover {
+    color: #4b5563;
+}
+
+/* Error texto */
+.error-text {
+    display: block;
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Checkbox */
+.form-group.checkbox {
+    margin-bottom: 24px;
+}
+
+.form-group.checkbox label {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+}
+
+.form-group.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+    accent-color: #2563eb;
+}
+
+.form-group.checkbox a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.form-group.checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* Botón */
+.btn-register {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-register:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-register:active {
+    transform: translateY(0);
+}
+
+.btn-register.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Links */
+.login-link {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.login-link p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer-text {
+    color: #6b7280;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .register-card {
+        padding: 24px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .register-header h1 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proveedores</title>
+<link rel="stylesheet" href="css/entradas.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+<div class="logo">
+<div class="logo-icon"><i class="fa-solid fa-table-cells-large"></i></div>
+<div><h3>Sistema ERP</h3><p>Versión 1.0</p></div>
+</div>
+<nav>
+<a class="menu" href="dashboard.html"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a>
+<a class="menu" href="productos.html"><i class="fa-solid fa-box"></i><span>Productos</span></a>
+<a class="menu" href="entradas.html"><i class="fa-solid fa-arrow-down"></i><span>Entradas</span></a>
+<a class="menu active" href="proveedores.html"><i class="fa-solid fa-truck-field"></i><span>Proveedores</span></a>
+<a class="menu" href="ventas.html"><i class="fa-solid fa-cart-shopping"></i><span>Ventas</span></a>
+<a class="menu" href="reportes.html"><i class="fa-solid fa-chart-column"></i><span>Reportes</span></a>
+<a class="menu" href="usuarios.html"><i class="fa-solid fa-users"></i><span>Usuarios</span></a>
+</nav>
+</aside>
+<main class="main">
+<header class="topbar">
+<h1>VentaTotal</h1>
+<a class="profile" href="usuarios.html">
+<div class="avatar"><i class="fa-regular fa-user"></i></div>
+<div><h4 id="topbarUsuarioNombre">Admin</h4><p id="topbarUsuarioRol">Administrador</p></div>
+</a>
+</header>
+<div class="content">
+<div class="page-header">
+<h2>Gestión de Proveedores</h2>
+<p>Administra proveedores y sus productos asignados</p>
+</div>
+<section class="kpi-row">
+<article class="kpi-card success"><p>Proveedores activos</p><h3 id="kpiProveedores">0</h3><span>Con catálogo asignado</span></article>
+<article class="kpi-card success"><p>Cobertura del catálogo</p><h3 id="kpiCobertura">0%</h3><span id="kpiCoberturaTexto">0 de 0 productos cubiertos</span></article>
+</section>
+<section class="proveedores-card">
+<div class="section-head">
+<h3><i class="fa-solid fa-truck-field"></i> Proveedores y Productos que Venden</h3>
+</div>
+<div class="proveedores-layout">
+<form id="formProveedor" class="proveedor-form">
+<h4>Nuevo proveedor</h4>
+<input id="idProveedor" type="hidden">
+<label for="proveedorNombre">Nombre contacto *</label>
+<input id="proveedorNombre" type="text" placeholder="Ej: Maria Lopez" required>
+<label for="proveedorEmpresa">Empresa *</label>
+<input id="proveedorEmpresa" type="text" placeholder="Ej: Distribuidora Andina" required>
+<div class="grid-2">
+<div><label for="proveedorTelefono">Teléfono</label><input id="proveedorTelefono" type="tel" placeholder="555 333 2211"></div>
+<div><label for="proveedorCorreo">Correo</label><input id="proveedorCorreo" type="email" placeholder="contacto@empresa.com"></div>
+</div>
+<div class="grid-2">
+<div><label for="proveedorRfc">RFC</label><input id="proveedorRfc" type="text" placeholder="XAXX010101000"></div>
+<div id="proveedorEstadoWrap" hidden><label for="proveedorEstado">Estado</label><select id="proveedorEstado"><option value="Activo" selected>Activo</option><option value="Inactivo">Inactivo</option></select></div>
+</div>
+<label for="proveedorDireccion">Dirección</label>
+<textarea id="proveedorDireccion" rows="2" placeholder="Calle, número, colonia, ciudad"></textarea>
+<label>Productos que vende *</label>
+<div id="checkProductos" class="check-productos"><p class="vacio">Cargando productos...</p></div>
+<p id="mensajeProveedor" class="mensaje"></p>
+<div class="acciones-form-proveedor">
+<button type="submit" class="btn-save" id="btnGuardarProveedor"><i class="fa-solid fa-floppy-disk"></i> Registrar proveedor</button>
+<button type="button" class="btn-cancel-proveedor" id="btnCancelarProveedor" hidden>Cancelar edición</button>
+</div>
+</form>
+<div class="proveedor-listado">
+<div class="listado-head"><h4>Proveedores registrados</h4><span id="contadorProveedores" class="badge">0</span></div>
+<div id="listaProveedores" class="lista-proveedores"><p class="vacio">Aún no hay proveedores registrados.</p></div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script src="js/proveedores.js"></script>
+</body>
+</html>

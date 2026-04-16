@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entradas de Inventario</title>
+
+<link rel="stylesheet" href="css/entradas.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<div class="logo">
+<div class="logo-icon">
+<i class="fa-solid fa-table-cells-large"></i>
+</div>
+
+<div>
+<h3>Sistema ERP</h3>
+<p>Versión 1.0</p>
+</div>
+</div>
+
+<nav>
+
+<a class="menu" href="dashboard.html">
+<i class="fa-solid fa-table-cells-large"></i>
+<span>Dashboard</span>
+</a>
+
+<a class="menu" href="productos.html">
+<i class="fa-solid fa-box"></i>
+<span>Productos</span>
+</a>
+
+<a class="menu active" href="entradas.html">
+<i class="fa-solid fa-arrow-down"></i>
+<span>Entradas</span>
+</a>
+
+<a class="menu" href="proveedores.html">
+<i class="fa-solid fa-truck-field"></i>
+<span>Proveedores</span>
+</a>
+
+<a class="menu" href="ventas.html">
+<i class="fa-solid fa-cart-shopping"></i>
+<span>Ventas</span>
+</a>
+
+<a class="menu" href="reportes.html">
+<i class="fa-solid fa-chart-column"></i>
+<span>Reportes</span>
+</a>
+
+<a class="menu" href="usuarios.html">
+<i class="fa-solid fa-users"></i>
+<span>Usuarios</span>
+</a>
+
+</nav>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+
+<h1>VentaTotal</h1>
+
+<div class="top-right">
+
+<a class="profile" href="usuarios.html">
+
+<div class="avatar">
+<i class="fa-regular fa-user"></i>
+</div>
+
+<div>
+<h4 id="topbarUsuarioNombre">Admin</h4>
+<p id="topbarUsuarioRol">Administrador</p>
+</div>
+
+</a>
+
+</div>
+
+</header>
+
+
+<div class="content">
+
+<div class="page-header">
+<h2>Registro de Entradas de Inventario</h2>
+<p>Registra proveedores, define qué productos te venden y documenta cada entrada</p>
+</div>
+
+<section class="stats">
+
+<article class="stat-card">
+<div>
+<p>Proveedores activos</p>
+<h3 id="kpiProveedores">0</h3>
+<span class="up">Con catálogo asignado</span>
+</div>
+<div class="icon blue">
+<i class="fa-solid fa-truck-field"></i>
+</div>
+</article>
+
+<article class="stat-card">
+<div>
+<p>Entradas registradas</p>
+<h3 id="kpiEntradas">0</h3>
+<span class="up">En este módulo</span>
+</div>
+<div class="icon green">
+<i class="fa-solid fa-arrow-down"></i>
+</div>
+</article>
+
+<article class="stat-card">
+<div>
+<p>Total gastado</p>
+<h3 id="kpiTotalGastado">$0.00</h3>
+<span class="up">Suma de compras (según filtros)</span>
+</div>
+<div class="icon purple">
+<i class="fa-solid fa-dollar-sign"></i>
+</div>
+</article>
+
+</section>
+
+
+<div class="entrada-card">
+
+<h3><i class="fa-solid fa-arrow-trend-up"></i> Nueva Entrada de Inventario</h3>
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label for="buscarProducto">Buscar Producto *</label>
+
+<div class="buscar">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input id="buscarProducto" type="text" placeholder="Buscar por nombre o código..." autocomplete="off">
+</div>
+
+<div id="resultadosProducto" class="resultados-producto">
+<p class="vacio">Escribe para buscar productos</p>
+</div>
+
+
+<div class="producto-info" id="productoInfo">
+
+<div class="producto-icon">
+<i class="fa-solid fa-box"></i>
+</div>
+
+<div>
+
+<h4 id="infoNombre">Ningún producto seleccionado</h4>
+<p id="infoCodigo">Código: -</p>
+<p id="infoPrecioCompra">Precio proveedor: -</p>
+
+<div class="stock-info">
+
+<div>
+<span>Stock Actual</span>
+<h3 class="stock-actual" id="infoStockActual">0</h3>
+</div>
+
+<div>
+<span>Stock Mínimo</span>
+<h3 id="infoStockMinimo">10</h3>
+</div>
+
+</div>
+
+<span class="stock-alerta" id="infoAlertaStock">
+<i class="fa-solid fa-triangle-exclamation"></i>
+Selecciona un producto para ver estado de stock
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="proveedorEntrada">Proveedor para esta entrada *</label>
+<select id="proveedorEntrada">
+<option value="">Selecciona un producto primero</option>
+</select>
+
+<label for="productoEntrada">Productos a comprar a este proveedor * (puedes elegir varios)</label>
+<select id="productoEntrada" disabled>
+<option value="">Selecciona un proveedor primero</option>
+</select>
+<button type="button" id="btnAgregarProductoEntrada" class="btn-agregar-producto-entrada">Agregar producto</button>
+
+<label>Cantidades por producto *</label>
+<div id="detalleProductosEntrada" class="detalle-productos-entrada">
+<p class="vacio">Selecciona productos para asignar cantidades.</p>
+</div>
+
+<div class="total-compra" id="totalCompraPreview">
+<strong>Total estimado:</strong>
+<span id="totalEntrada">$0.00</span>
+</div>
+
+<label class="mt" for="observacionEntrada">Motivo de Entrada / Observacion</label>
+<textarea id="observacionEntrada" placeholder="Ej: Reposición mensual, Pedido especial, etc."></textarea>
+
+<p id="mensajeEntrada" class="mensaje"></p>
+
+</div>
+
+</div>
+
+<button class="btn-registrar" id="btnRegistrarEntrada">
+<i class="fa-solid fa-arrow-trend-up"></i>
+Registrar Entrada
+</button>
+
+</div>
+
+<div class="historial-card">
+
+<div class="historial-header">
+
+<h3>
+<i class="fa-solid fa-file-lines"></i>
+Historial de Entradas
+</h3>
+
+<span class="badge" id="badgeHistorial">0 registros</span>
+
+</div>
+
+
+<div class="filtros-fecha">
+
+<div class="fecha">
+<label>Desde</label>
+<input id="filtroDesde" type="date">
+</div>
+
+<div class="fecha">
+<label>Hasta</label>
+<input id="filtroHasta" type="date">
+</div>
+
+<div class="fecha">
+<label>Proveedor</label>
+<select id="filtroProveedorHistorial">
+<option value="">Todos los proveedores</option>
+</select>
+</div>
+
+<div class="fecha">
+<label>Producto</label>
+<select id="filtroProductoHistorial">
+<option value="">Todos los productos</option>
+</select>
+</div>
+
+</div>
+
+
+<table class="tabla-historial">
+
+<thead>
+<tr>
+<th><i class="fa-regular fa-calendar"></i> FECHA</th>
+<th><i class="fa-solid fa-box"></i> PRODUCTO</th>
+<th><i class="fa-solid fa-truck"></i> PROVEEDOR</th>
+<th>CANTIDAD INGRESADA</th>
+<th>TOTAL</th>
+<th>DETALLE</th>
+</tr>
+</thead>
+
+<tbody id="tablaHistorialBody"></tbody>
+
+</table>
+
+<div id="modalDetalleEntrada" class="modal-detalle hidden" role="dialog" aria-modal="true" aria-labelledby="modalDetalleTitulo">
+<div class="modal-detalle-card">
+<div class="modal-detalle-head">
+<h4 id="modalDetalleTitulo">Detalle de entrada</h4>
+<button type="button" id="btnCerrarModalDetalle" class="btn-cerrar-modal" aria-label="Cerrar detalle">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<div id="contenidoDetalleEntrada" class="modal-detalle-body"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="js/entradas.js"></script>
+
+</body>
+</html>

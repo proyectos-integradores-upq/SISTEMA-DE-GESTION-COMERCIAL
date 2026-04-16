@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta - VentaTotal</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/register.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Background decorativo -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <!-- Contenedor principal -->
+    <main class="register-container">
+
+        <section class="register-card">
+
+            <!-- Header -->
+            <header class="register-header">
+                <div class="logo-container">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <h1>VentaTotal</h1>
+                <p class="subtitle">Crear Cuenta Nueva</p>
+            </header>
+
+            <!-- Formulario -->
+            <form class="register-form" id="registerForm">
+
+                <!-- Nombre y Apellido -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <div class="input-group">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" id="nombre" placeholder="Tu nombre" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <div class="input-group">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" id="apellido" placeholder="Tu apellido" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Correo -->
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <div class="input-group">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="correo" placeholder="tu@email.com" required>
+                    </div>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="contrasena" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Confirmar contraseña -->
+                <div class="form-group">
+                    <label for="confirmar_contrasena">Confirmar Contraseña</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirmar_contrasena" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Términos -->
+                <div class="form-group checkbox">
+                    <label>
+                        <input type="checkbox" id="terminos" required>
+                        <span>
+                            Acepto los <a href="#">términos y condiciones</a>
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit" class="btn-register">
+                    Crear Cuenta
+                </button>
+
+            </form>
+
+            <!-- Link login -->
+            <div class="login-link">
+                <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+                <p class="footer-text">© 2026 VentaTotal. Todos los derechos reservados.</p>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <!-- JS -->
+    <script src="js/register.js"></script>
+
+</body>
+</html>

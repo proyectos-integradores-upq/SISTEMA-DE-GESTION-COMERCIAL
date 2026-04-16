@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VentaTotal</title>
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
+<div class="bg-blob blob-3"></div>
+
+<div class="login-container">
+
+<div class="login-card">
+
+<div class="login-header">
+
+<div class="logo-container">
+<i class="fa-solid fa-right-to-bracket"></i>
+</div>
+
+<h1>VentaTotal</h1>
+<p class="subtitle"></p>
+
+</div>
+
+<!-- 🔥 SOLO agregamos id -->
+<form class="login-form" id="loginForm">
+
+<div class="form-group">
+<label>Correo Electrónico</label>
+
+<div class="input-group">
+<i class="fa-regular fa-envelope"></i>
+<!-- 🔥 agregamos id -->
+<input type="email" id="correo" placeholder="tu@email.com" required>
+</div>
+
+</div>
+
+<div class="form-group">
+<label>Contraseña</label>
+
+<div class="input-group">
+<i class="fa-solid fa-lock"></i>
+<!-- 🔥 agregamos id -->
+<input type="password" id="contrasena" placeholder="••••••••" required>
+<button type="button" class="toggle-password">
+<i class="fa-regular fa-eye"></i>
+</button>
+</div>
+
+</div>
+
+<!-- 🔥 quitamos el <a> porque rompe el login -->
+<button type="submit" class="btn-login">Ingresar</button>
+
+</form>
+
+<div class="forgot-password">
+<a href="#">¿Olvidaste tu contraseña?</a>
+</div>
+
+<div class="register-link">
+<p>¿No tienes cuenta? <a href="register.html">Crea una aquí</a></p>
+</div>
+
+<p class="footer-text">© 2026 VentaTotal. Todos los derechos reservados.</p>
+</div>
+
+</div>
+
+<!-- 🔥 TU JS EXTERNO -->
+<script src="js/login.js"></script>
+
+</body>
+</html>
